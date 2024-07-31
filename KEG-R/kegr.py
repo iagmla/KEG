@@ -42,6 +42,10 @@ class KEG:
         for x in range(step_value):
             self.deck.append(self.deck.pop(crypt_card_index))
 
+    def key_scheduler(self):
+        for x in range(52):
+            self.step()
+
     def encrypt_letter(self, letter):
         # Step the encryption pile
         self.step()
@@ -60,15 +64,19 @@ class KEG:
         #print(len(self.deck), len(self.discard))
         return chr(((num - self.values[self.deck[0]][0]) % 26) + 65)
 
-    def encrypt(self, letters):
+    def encrypt(self, letters, ksa=False):
         ctxt = []
+        if ksa:
+            self.key_scheduler()
         for x in range(len(letters)):
             letter = self.encrypt_letter(letters[x])
             ctxt.append(letter)
         return "".join(ctxt)
 
-    def decrypt(self, letters):
+    def decrypt(self, letters, ksa=False):
         ptxt = []
+        if ksa:
+            self.key_scheduler()
         for x in range(len(letters)):
             letter = self.decrypt_letter(letters[x])
             ptxt.append(letter)
