@@ -6,27 +6,27 @@ class KEG:
     def __init__(self):
         self.values = {}
         self.discard = []
-        color = 0
+        suit = 0
         value = 0
         for x in range(52):
             if x % 13 == 0 and x != 0:
-                color += 1
-            self.values[x] = (value, color)
+                suit += 1
+            self.values[x] = (value, suit)
             value = (value + 1) % 26
 
     def key(self, key):
         # Set the deck to equal numbers 0-51
         self.deck = list(key)
-        # Set the gate color to be the color
+        # Set the gate suit to be the suit
         # Of the first card in the deck
-        self.color = self.values[self.deck[0]][1]
+        self.suit = self.values[self.deck[0]][1]
 
     def step(self):
         values = self.values[self.deck[1]]
         step_value = values[0]
-        # If the stepping card equals the gate color
+        # If the stepping card equals the gate suit
         # Move the dicard pile to the rear of the encryption pile
-        if values[1] == self.color and len(self.discard) != 0:
+        if values[1] == self.suit and len(self.discard) != 0:
             for x in range(len(self.discard)):
                 self.deck.append(self.discard.pop(0))
             # Discard the stepping card
