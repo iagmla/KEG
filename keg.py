@@ -1,5 +1,5 @@
 ''' KEG Cipher '''
-''' Kolor Encryption Gate '''
+''' Karl's Encryption Gate '''
 ''' by KryptoMagick (Karl Zander) '''
 
 class KEG:

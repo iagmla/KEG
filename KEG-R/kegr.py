@@ -1,5 +1,5 @@
 ''' KEG-R Cipher '''
-''' Kolor Encryption Gate (Revised) '''
+''' Karl's Encryption Gate (Revised) '''
 ''' Improved KEG Cipher '''
 ''' by KryptoMagick (Karl Zander) '''
 
