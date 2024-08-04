@@ -19,8 +19,6 @@ class KEG:
         # Set the gate suit to be the suit
         # Of the first card in the deck
         self.gate_suit = self.values[self.deck[0]][1]
-        #print(self.gate_suit)
-        self.gate_card = self.values[self.deck[0]][0] % 13
 
     def step(self):
         step_card_index = 1
