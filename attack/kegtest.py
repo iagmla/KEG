@@ -49,6 +49,7 @@ class KEG:
         # Convert the letter to number 0-25
         num = ord(letter) - 65
         # Encipher the letter
+        print("KS", self.values[self.deck[0]][0])
         return chr(((num + self.values[self.deck[0]][0]) % 26) + 65)
 
     def decrypt_letter(self, letter):
