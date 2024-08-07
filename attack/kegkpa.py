@@ -25,3 +25,9 @@ for x in range(kpa_length, len(ctxt)):
 
 possible_ptxt = ka.decrypt(unknown_ctxt)
 print("Possible Plaintext:", possible_ptxt)
+# Reverse order the key stream and try
+known_key_stream.reverse()
+kb = KEG()
+kb.key(known_key_stream)
+possible_ptxt = kb.decrypt(unknown_ctxt)
+print("Possible Plaintext:", possible_ptxt)
