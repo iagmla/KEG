@@ -54,16 +54,8 @@ class KEGH:
         self.step()
         # Convert the letter to number 0-25
         num = ord(letter) - 65
-        # If the card in the N-th (0-26) position is equal to the gate color
-        # Pull that card and place it at the rear of the deck
-        # If not, pull the card in the N-th + N place and place it at the rear 
-        if self.values[self.deck[num]][1] == self.gate_color:
-            self.deck.append(self.deck.pop(num))
-        else:
-            if self.values[self.deck[num]][0] == 0:
-                self.deck.append(self.deck.pop(26))
-            else:
-                self.deck.append(self.deck.pop(num + num))
+        # Pull the card in the N-th place and place it at the rear 
+        self.deck.append(self.deck.pop(num))
 
     def digest(self, letters):
         h = []
