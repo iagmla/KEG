@@ -13,6 +13,7 @@ class KEGH:
             self.values[x] = (x % 26, color, x)
 
     def key(self, key):
+        self.key = list(key)
         # Set the deck to equal numbers 0-51
         self.deck = list(key)
         # Set the gate color to be the color
@@ -48,8 +49,6 @@ class KEGH:
             self.step()
 
     def hash_letter(self, letter):
-        # Perform the key scheduler
-        self.key_scheduler()
         # Step the encryption pile
         self.step()
         # Convert the letter to number 0-25
@@ -61,6 +60,11 @@ class KEGH:
         h = []
         for x in range(len(letters)):
             letter = self.hash_letter(letters[x])
+        # Pickup the discard pile and place it at the rear
+        self.pickup()
+        # Hash each letter of the key
+        for x in range(52):
+            letter = self.hash_letter(chr(self.values[self.key[x]][0] + 65))
         # Pickup the discard pile and place it at the rear
         self.pickup()
         # Convert the hash deck to A-Z letters
