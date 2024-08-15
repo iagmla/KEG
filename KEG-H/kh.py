@@ -1,6 +1,6 @@
 from kegh import KEGH
 
-msg = "HELLOWORLD"
+msg = "A"
 key = list(range(52))
 kh = KEGH()
 kh.key(key)
