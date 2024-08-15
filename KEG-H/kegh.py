@@ -60,7 +60,10 @@ class KEGH:
         if self.values[self.deck[num]][1] == self.gate_color:
             self.deck.append(self.deck.pop(num))
         else:
-            self.deck.append(self.deck.pop(num + num))
+            if self.values[self.deck[num]][0] == 0:
+                self.deck.append(self.deck.pop(26))
+            else:
+                self.deck.append(self.deck.pop(num + num))
 
     def digest(self, letters):
         h = []
